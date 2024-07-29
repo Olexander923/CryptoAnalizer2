@@ -6,11 +6,11 @@ import ru.javarush.shadrin.cryptoanalizer2.entity.commands.Encoder;
 import ru.javarush.shadrin.cryptoanalizer2.exceptions.AppException;
 
 public enum Actions {
-    ENCODE(new Encoder());
+    ENCODE(new Encoder()),
     DECODE(new Decoder());
 
     private final Action action;
-    Actions(Encoder action) {
+    Actions(Action action) {
         this.action = action;
     }
 
@@ -21,7 +21,7 @@ public enum Actions {
             return value.action;
 
         } catch (IllegalArgumentException e) {
-            throw new AppException();
+            throw new AppException("not found "+ actionName, e);
         }
 }
 }

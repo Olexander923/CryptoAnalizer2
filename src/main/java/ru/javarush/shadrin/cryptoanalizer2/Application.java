@@ -20,9 +20,10 @@ public Result run(String[] args)  {
             String action = args[0];
             //parameters - text.txt encode.txt 12
             String[] parameters = Arrays.copyOfRange(args, 1, args.length);
+            return mainController.doAction(action, parameters);
 
-            Result result = mainController.doAction(action, parameters);
+                    } else {
+            throw new AppException("no args");
         }
-   throw new AppException();
     }
 }
